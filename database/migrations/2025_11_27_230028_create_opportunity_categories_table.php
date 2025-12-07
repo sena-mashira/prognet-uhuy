@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('opportunity_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 100);
+            $table->string('slug', 120)->unique();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\OpportunityCategory;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\OpportunityCategoryRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OpportunityCategoryController extends Controller
 {
@@ -13,7 +15,8 @@ class OpportunityCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = OpportunityCategory::all();
+        return view('category.index', compact('categories'));
     }
 
     /**
@@ -21,15 +24,19 @@ class OpportunityCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('category.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(OpportunityCategoryRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        OpportunityCategory::create($validated);
+
+        return back()->with('success', 'Kategori berhasil dibuat.');
     }
 
     /**
@@ -37,7 +44,10 @@ class OpportunityCategoryController extends Controller
      */
     public function show(OpportunityCategory $opportunityCategory)
     {
-        //
+        $category = $opportunityCategory;
+        $opportunities = $category->opportunities;
+        
+        return view('category.show', compact('category', 'opportunities'));
     }
 
     /**
@@ -45,15 +55,20 @@ class OpportunityCategoryController extends Controller
      */
     public function edit(OpportunityCategory $opportunityCategory)
     {
-        //
+        $category = $opportunityCategory;
+        return view('category.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, OpportunityCategory $opportunityCategory)
+    public function update(OpportunityCategoryRequest $request, OpportunityCategory $opportunityCategory)
     {
         //
+        $validated = $request->validated();
+        $opportunityCategory->update($validated);
+
+        return back()->with('success', 'Kategori berhasil diubah.');
     }
 
     /**
@@ -61,6 +76,7 @@ class OpportunityCategoryController extends Controller
      */
     public function destroy(OpportunityCategory $opportunityCategory)
     {
-        //
+        $opportunityCategory->delete();
+        return back()->with('success', 'Kategori berhasil dihapus.');
     }
 }

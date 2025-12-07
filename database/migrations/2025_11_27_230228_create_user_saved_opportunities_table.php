@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('user_saved_opportunities', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('opportunity_id')->constrained('opportunities')->onDelete('cascade');
             $table->timestamps();
         });
     }
