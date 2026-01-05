@@ -31,7 +31,7 @@ class OpportunityRequest extends FormRequest
 
             // logika adaptif: store vs update
             'slug'              => [
-                'required',
+                'nullable',
                 'string',
                 'max:220',
                 'unique:opportunities,slug,' . ($id ?? 'NULL') . ',id',
@@ -53,7 +53,7 @@ class OpportunityRequest extends FormRequest
             'end_date'          => ['nullable', 'date', 'after_or_equal:start_date'],
 
             'registration_link' => ['nullable', 'url'],
-            'poster_url'        => ['nullable', 'url'],
+            'poster_url'        => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
         ];
     }
 
@@ -90,7 +90,10 @@ class OpportunityRequest extends FormRequest
             'end_date.after_or_equal' => 'Tanggal selesai tidak boleh lebih awal dari tanggal mulai.',
 
             'registration_link.url' => 'Link pendaftaran harus berupa URL yang valid.',
-            'poster_url.url'        => 'URL poster harus berupa tautan valid.',
+            'poster_url.required'    => 'Poster tidak boleh kosong.',
+            'poster_url.image'       => 'Poster harus berupa file gambar.',
+            'poster_url.mimes'       => 'Format poster harus jpeg/png/jpg/webp.',
+            'poster_url.max'         => 'Poster maksimal 2MB.',
         ];
     }
 }

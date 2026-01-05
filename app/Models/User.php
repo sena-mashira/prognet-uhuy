@@ -71,4 +71,14 @@ class User extends Authenticatable
         return $this->belongsToMany(Opportunity::class, 'user_saved_opportunities')
             ->withTimestamps();
     }
+
+    public function threads()
+    {
+        return $this->hasMany(Thread::class);
+    }
+    
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class, 'author_id');
+    }
 }
