@@ -68,12 +68,9 @@
                             @enderror
 
                             <div class="mt-4">
-                                <button type="submit"
-                                    class="px-5 py-2 rounded-lg font-medium text-white
-                                           bg-blue-600 hover:bg-blue-700
-                                           focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <x-button>
                                     Kirim Balasan
-                                </button>
+                                </x-button>
                             </div>
                         </form>
                     </section>
