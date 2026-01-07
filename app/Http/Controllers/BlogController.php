@@ -104,7 +104,7 @@ class BlogController extends Controller
         $this->authorize('delete', $blog);
 
         $blog->delete();
-        return redirect()->route('blog.index')->with('success', 'Article deleted.');
+        return redirect()->route('blogs.index')->with('success', 'Article deleted.');
     }
 
     private function generateUniqueSlug(string $title, $ignoreId = null): string
