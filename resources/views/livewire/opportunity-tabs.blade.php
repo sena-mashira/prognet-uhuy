@@ -3,12 +3,12 @@
         {{-- ALL --}}
         <li>
             <button wire:click="setCategory('all')"
-                class="px-4 py-2 rounded-md transition
-            {{ $activeCategory === 'all'
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600' }}">
-                All
-            </button>
+    class="px-4 py-2 rounded-md transition font-medium
+    {{ $activeCategory === 'all'
+        ? 'bg-gradient-to-r from-[#2563EB] to-[#22D3EE] text-white shadow-md'
+        : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600' }}">
+    All
+</button>
         </li>
 
         {{-- CATEGORY --}}

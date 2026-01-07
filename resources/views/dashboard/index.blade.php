@@ -74,7 +74,7 @@
                     @forelse ($blogs as $blog)
                         <div class="py-4">
                             <a href="{{ route('blogs.show', $blog->slug) }}"
-                               class="text-base font-medium text-blue-600 hover:text-blue-700 hover:underline transition">
+                               class="text-base font-medium text-black-600 hover:text-blue-700 hover:underline transition">
                                 {{ $blog->title }}
                             </a>
                             <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
