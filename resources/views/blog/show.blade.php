@@ -53,7 +53,7 @@
                 @endif
 
                 {{-- Content --}}
-                <div class="prose prose-lg dark:prose-invert max-w-none">
+                <div class="prose prose-lg dark:prose-invert max-w-none break-all">
                     {!! nl2br(e($blog->content)) !!}
                 </div>
 
