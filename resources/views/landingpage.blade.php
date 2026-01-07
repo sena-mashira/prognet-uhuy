@@ -109,8 +109,8 @@
                 </p>
 
                 <div class="mt-12 flex flex-col sm:flex-row gap-4">
-                    <a href="{{ route('opportunities.index') }}">
-                        <x-button>Jelajahi Peluang</x-button>
+                    <a href="{{ route('opportunities.index') }}" class="inline-block">
+                      <x-button>Jelajahi Peluang</x-button>
                     </a>
 
                     <a href="#about">
