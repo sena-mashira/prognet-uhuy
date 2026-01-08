@@ -13,7 +13,7 @@ class OpportunityController extends Controller
 {
     public function index()
     {
-        $opportunities = Opportunity::all();
+        // $opportunities = Opportunity::where('status', 'approved')->latest()->get();
         // dd($opportunities);  
         // return view('opportunity.index', compact('opportunities'));
         return view('opportunity.index');
@@ -78,27 +78,27 @@ class OpportunityController extends Controller
         return back()->with('success', 'Peluang berhasil dihapus.');
     }
 
-    public function addToCalendar(Opportunity $opportunity)
-{
-    $client = $this->client();
-    $client->setAccessToken(session('google_token'));
+//     public function addToCalendar(Opportunity $opportunity)
+// {
+//     $client = $this->client();
+//     $client->setAccessToken(session('google_token'));
 
-    $service = new Calendar($client);
+//     $service = new Calendar($client);
 
-    $event = new Calendar\Event([
-        'summary' => $opportunity->title,
-        'description' => $opportunity->description,
-        'start' => [
-            'dateTime' => $opportunity->start_date->toRfc3339String(),
-            'timeZone' => 'Asia/Jakarta',
-        ],
-        'end' => [
-            'dateTime' => $opportunity->end_date->toRfc3339String(),
-            'timeZone' => 'Asia/Jakarta',
-        ],
-    ]);
+//     $event = new Calendar\Event([
+//         'summary' => $opportunity->title,
+//         'description' => $opportunity->description,
+//         'start' => [
+//             'dateTime' => $opportunity->start_date->toRfc3339String(),
+//             'timeZone' => 'Asia/Jakarta',
+//         ],
+//         'end' => [
+//             'dateTime' => $opportunity->end_date->toRfc3339String(),
+//             'timeZone' => 'Asia/Jakarta',
+//         ],
+//     ]);
 
-    $service->events->insert('primary', $event);
-}
+//     $service->events->insert('primary', $event);
+// }
 
 }

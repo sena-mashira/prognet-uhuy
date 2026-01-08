@@ -45,7 +45,7 @@ class ReplyPolicy
      */
     public function delete(User $user, Reply $reply): bool
     {
-        return $user->id === $reply->user_id;
+        return $user->id === $reply->user_id || $user->isAdmin();
     }
 
     /**

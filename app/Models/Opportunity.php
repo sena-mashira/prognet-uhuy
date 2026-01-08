@@ -23,7 +23,8 @@ class Opportunity extends Model
         'start_date',
         'end_date',
         'registration_link',
-        'poster_url'
+        'poster_url',
+        'status'
     ];
 
     public function getRouteKeyName()

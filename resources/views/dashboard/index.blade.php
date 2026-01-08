@@ -78,7 +78,7 @@
                                 {{ $blog->title }}
                             </a>
                             <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                                {{ $blog->created_at->format('d M Y') }}
+                                {{ $blog->created_at->translatedFormat('d F Y') }}
                             </p>
                         </div>
                     @empty

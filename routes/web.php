@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminOpportunityController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OpportunityCategoryController;
@@ -66,3 +69,21 @@ Route::middleware([
 
     Route::delete('/replies/{reply}', [ReplyController::class, 'destroy'])->name('replies.destroy');
 });
+
+Route::middleware(['auth', 'admin'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+
+        Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+
+        Route::resource('/opportunities', AdminOpportunityController::class)->only([
+            'index', 'update', 'destroy'
+        ]);
+
+        Route::resource('/categories', AdminCategoryController::class);
+
+        // Route::get('/system', [AdminSystemController::class, 'index'])->name('system');
+        // Route::delete('/system/flush', [AdminSystemController::class, 'flush'])->name('system.flush');
+    });
+

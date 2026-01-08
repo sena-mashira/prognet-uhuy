@@ -18,11 +18,12 @@ class OpportunityTabs extends Component
     public function getOpportunitiesProperty()
     {
         if ($this->activeCategory === 'all') {
-            return Opportunity::latest()->get();
+            return Opportunity::where('status', 'approved')->latest()->get();
         }
 
         return Opportunity::whereHas('category', function ($q) {
             $q->where('slug', $this->activeCategory);
+            $q->where('status', 'approved');
         })->latest()->get();
 
     }

@@ -24,7 +24,7 @@
                         <x-danger-button>
                             {{ __('Hapus') }}
                         </x-danger-button>
-                    </form>
+                    </form> 
                 @endcan
             </div>
         </div>
