@@ -985,7 +985,7 @@
             if (entry.isIntersecting) {
               entry.target.classList.add('is-visible');
             } else {
-              // biar pas scroll naik/turun bisa fade lagi
+    
               entry.target.classList.remove('is-visible');
             }
           });
