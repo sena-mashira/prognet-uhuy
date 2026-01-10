@@ -359,42 +359,42 @@
 
                         {{-- Poster (File) --}}
                         <div>
-                        <label class="block text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2">
-                            Poster
-                        </label>
+                            <label class="block text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                                Poster
+                            </label>
 
-                        {{-- Preview poster lama --}}
-                        @if ($opportunity->poster_url)
-                                <img id="poster-preview"
-                                    src="{{ asset('storage/' . $opportunity->poster_url) }}"
-                                    class="w-full max-h-[320px] object-cover rounded-2xl mb-3
-                                        border border-gray-200/70 dark:border-white/10
-                                        ring-1 ring-black/5 dark:ring-white/10"
-                                    alt="Poster Preview">
-                            @else
-                                <img id="poster-preview"
-                                    class="hidden w-full max-h-[320px] object-cover rounded-2xl mb-3
-                                        border border-gray-200/70 dark:border-white/10
-                                        ring-1 ring-black/5 dark:ring-white/10"
-                                    alt="Poster Preview">
-                            @endif
+                            {{-- Preview lama / preview setelah pilih file --}}
+                            <img
+                                id="poster-preview"
+                                src="{{ $opportunity->poster_url ? asset('storage/' . $opportunity->poster_url) : '' }}"
+                                class="{{ $opportunity->poster_url ? '' : 'hidden' }}
+                                       w-full max-h-[320px] object-cover rounded-2xl mb-3
+                                       border border-gray-200/70 dark:border-white/10
+                                       ring-1 ring-black/5 dark:ring-white/10"
+                                alt="Poster Preview"
+                            >
 
-                            <input type="file" name="poster" id="poster" accept="image/*"
+                            <input
+                                type="file"
+                                name="poster_url"
+                                id="poster"
+                                accept="image/*"
                                 onchange="previewPoster(event)"
                                 class="w-full rounded-xl px-4 py-3
-                                    bg-white dark:bg-white/5
-                                    border border-gray-200 dark:border-white/10
-                                    text-gray-900 dark:text-gray-100
-                                    ring-1 ring-black/5 dark:ring-white/10
-                                    focus:outline-none focus:ring-2 focus:ring-cyan-300/60 focus:border-cyan-300/60
-                                    transition" />
+                                       bg-white dark:bg-white/5
+                                       border border-gray-200 dark:border-white/10
+                                       text-gray-900 dark:text-gray-100
+                                       ring-1 ring-black/5 dark:ring-white/10
+                                       focus:outline-none focus:ring-2 focus:ring-cyan-300/60 focus:border-cyan-300/60
+                                       transition"
+                            />
 
-                            @error('poster')
+                            @error('poster_url')
                                 <p class="text-red-600 text-sm mt-2">{{ $message }}</p>
                             @enderror
 
                             <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">
-                                Upload gambar (JPG/PNG/WebP).
+                                Upload gambar (JPG/PNG/WebP). Kosongkan kalau tidak ingin mengganti poster.
                             </p>
                         </div>
 
