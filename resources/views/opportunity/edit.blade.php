@@ -357,28 +357,47 @@
                             @enderror
                         </div>
 
-                        {{-- Poster URL --}}
+                        {{-- Poster (File) --}}
                         <div>
-                            <label class="block text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2">
-                                Poster URL
-                            </label>
-                            <input type="text" name="poster_url" id="poster_url"
+                        <label class="block text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                            Poster
+                        </label>
+
+                        {{-- Preview poster lama --}}
+                        @if ($opportunity->poster_url)
+                                <img id="poster-preview"
+                                    src="{{ asset('storage/' . $opportunity->poster_url) }}"
+                                    class="w-full max-h-[320px] object-cover rounded-2xl mb-3
+                                        border border-gray-200/70 dark:border-white/10
+                                        ring-1 ring-black/5 dark:ring-white/10"
+                                    alt="Poster Preview">
+                            @else
+                                <img id="poster-preview"
+                                    class="hidden w-full max-h-[320px] object-cover rounded-2xl mb-3
+                                        border border-gray-200/70 dark:border-white/10
+                                        ring-1 ring-black/5 dark:ring-white/10"
+                                    alt="Poster Preview">
+                            @endif
+
+                            <input type="file" name="poster" id="poster" accept="image/*"
+                                onchange="previewPoster(event)"
                                 class="w-full rounded-xl px-4 py-3
-                                       bg-white dark:bg-white/5
-                                       border border-gray-200 dark:border-white/10
-                                       text-gray-900 dark:text-gray-100
-                                       ring-1 ring-black/5 dark:ring-white/10
-                                       focus:outline-none focus:ring-2 focus:ring-cyan-300/60 focus:border-cyan-300/60
-                                       transition"
-                                value="{{ old('poster_url', $opportunity->poster_url) }}">
-                            @error('poster_url')
+                                    bg-white dark:bg-white/5
+                                    border border-gray-200 dark:border-white/10
+                                    text-gray-900 dark:text-gray-100
+                                    ring-1 ring-black/5 dark:ring-white/10
+                                    focus:outline-none focus:ring-2 focus:ring-cyan-300/60 focus:border-cyan-300/60
+                                    transition" />
+
+                            @error('poster')
                                 <p class="text-red-600 text-sm mt-2">{{ $message }}</p>
                             @enderror
 
                             <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">
-                                Isi URL gambar (kalau sistem kamu memang simpan poster sebagai URL). Kalau kamu pakai upload file, nanti kita ganti jadi input file + preview.
+                                Upload gambar (JPG/PNG/WebP).
                             </p>
                         </div>
+
 
                         {{-- Submit --}}
                         <div class="pt-4 flex flex-col sm:flex-row items-center gap-3">
@@ -408,4 +427,21 @@
 
         </div>
     </div>
+
+    <script>
+    function previewPoster(event) {
+        const input = event.target;
+        const preview = document.getElementById('poster-preview');
+
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = e => {
+                preview.src = e.target.result;
+                preview.classList.remove('hidden');
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
 </x-app-layout>
