@@ -16,7 +16,31 @@
                 @endif
             </div>
 
-            <livewire:save-opportunity :opportunity="$opportunity" />
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200">
+                {{ $opportunity->title }}
+            </h2>
+            <div class="flex gap-2">
+                @can('update', $opportunity)
+                    <a href="{{ route('blogs.edit', $blog) }}">
+                        <x-button>
+                            {{ __('Edit') }}
+                        </x-button>
+                    </a>
+                @endcan
+
+                @can('delete', $opportunity)
+                    <form action="{{ route('opportunities.destroy', $blog) }}" method="POST"
+                        onsubmit="return confirm('Yakin ingin menghapus tulisan ini?')">
+                        @csrf
+                        @method('DELETE')
+                        <x-danger-button>
+                            {{ __('Hapus') }}
+                        </x-danger-button>
+                    </form>
+                @endcan
+
+                <livewire:save-opportunity :opportunity="$opportunity" />
+            </div>
         </div>
     </x-slot>
 

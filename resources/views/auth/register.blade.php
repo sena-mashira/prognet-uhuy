@@ -4,7 +4,15 @@
     </x-slot>
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+            <svg width="195" height="191" viewBox="0 0 195 191" xmlns="http://www.w3.org/2000/svg"
+                class="block h-7 w-auto fill-blue-600">
+                <path
+                    d="M64.5333 2.6416C55.6 5.70827 47.3333 12.5083 41.8667 21.0416C36.1333 29.9749 34.1333 38.1083 34.9333 49.5749C36.1333 66.3749 37.0667 67.5749 93.2 123.575C121.067 151.308 144.8 174.642 146 175.308C147.2 175.975 149.467 176.108 151.067 175.708C155.733 174.508 195.2 134.242 194.267 131.708C193.2 129.042 188.8 128.908 186.667 131.575C185.733 132.642 184.4 133.575 183.6 133.575C182.8 133.575 183.6 132.108 185.333 130.375C188.667 126.642 188.133 122.908 184.267 122.908C182.933 122.908 180.667 124.108 179.333 125.575C178 127.042 176.533 127.975 176.267 127.575C175.867 127.175 176.933 125.442 178.667 123.575C182 119.975 181.467 116.242 177.467 116.242C176 116.242 174 117.175 172.8 118.242C169.467 121.575 168.667 120.508 172 117.042C175.333 113.442 174.8 109.575 171.067 109.575C169.733 109.575 164.4 113.708 159.333 118.908C154.267 123.975 149.467 128.242 148.8 128.242C146.4 128.242 72 52.9083 70.8 49.1749C68.2667 42.1083 73.0667 35.7083 80.6667 35.7083C89.7333 35.7083 93.6 44.9083 88.4 53.7083L86 57.5749L98.2667 69.8416L110.4 81.9749L114.533 77.4416C116.8 74.9083 120.267 69.5749 122.267 65.5749C125.6 59.0416 126 56.7749 126 45.5749C126 30.2416 123.067 23.3083 112.667 12.7749C100.8 0.908268 81.4667 -3.22507 64.5333 2.6416ZM149.333 156.242C148.267 156.908 145.867 157.442 144 157.442L140.667 157.308L144 156.242C145.867 155.708 148.267 155.175 149.333 155.042C151.067 154.908 151.067 155.042 149.333 156.242Z"
+                    fill="inherit" />
+                <path
+                    d="M25.6 116.642C2.53333 139.842 0 142.775 0 146.908C0 150.908 2.13333 153.575 19.6 171.175C33.4667 185.175 40.1333 190.908 42.2667 190.908C46.1333 190.908 46.4 186.375 43.0667 182.375C40.6667 179.575 40.6667 179.575 43.4667 181.842C46.5333 184.508 51.3333 185.042 52.8 182.775C53.2 181.975 52.2667 179.442 50.6667 177.175L47.6 173.175L50.8 175.308C57.4667 180.108 62 177.042 57.4667 170.908L54.6667 167.042L58.4 169.175C62.2667 171.442 66.6667 170.908 66.6667 168.108C66.6667 167.308 62.1333 161.842 56.5333 156.108L46.4 145.708L61.3333 130.908L76.4 115.975L63.8667 103.442C57.0667 96.5083 51.3333 90.9083 51.3333 90.9083C51.3333 90.9083 39.7333 102.508 25.6 116.642ZM20 142.508C20 146.242 19.6 147.042 18.6667 145.575C16.9333 142.908 16.9333 137.575 18.6667 137.575C19.4667 137.575 20 139.842 20 142.508Z"
+                    fill="inherit" />
+            </svg>
         </x-slot>
 
         <x-validation-errors class="mb-4" />
@@ -14,22 +22,26 @@
 
             <div>
                 <x-label for="name" value="{{ __('Name') }}" />
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')"
+                    required autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
                 <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
+                    required autocomplete="username" />
             </div>
 
             <div class="mt-4">
                 <x-label for="password" value="{{ __('Password') }}" />
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required
+                    autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
                 <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                <x-input id="password_confirmation" class="block mt-1 w-full" type="password"
+                    name="password_confirmation" required autocomplete="new-password" />
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
@@ -40,8 +52,18 @@
 
                             <div class="ms-2">
                                 {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">'.__('Privacy Policy').'</a>',
+                                    'terms_of_service' =>
+                                        '<a target="_blank" href="' .
+                                        route('terms.show') .
+                                        '" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">' .
+                                        __('Terms of Service') .
+                                        '</a>',
+                                    'privacy_policy' =>
+                                        '<a target="_blank" href="' .
+                                        route('policy.show') .
+                                        '" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">' .
+                                        __('Privacy Policy') .
+                                        '</a>',
                                 ]) !!}
                             </div>
                         </div>
@@ -50,7 +72,8 @@
             @endif
 
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
+                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                    href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>
 

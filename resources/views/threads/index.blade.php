@@ -33,7 +33,17 @@
                     </p>
                 </a>
             @empty
-                <p class="text-gray-500">Belum ada diskusi.</p>
+                <div
+                    class="text-center py-24 rounded-xl
+               bg-white dark:bg-gray-800
+               border border-gray-100 dark:border-gray-700">
+                    <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                        Belum ada diskusi yang dimulai
+                    </p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                        Silakan kembali lagi nanti.
+                    </p>
+                </div>
             @endforelse
 
             <div>

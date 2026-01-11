@@ -25,7 +25,6 @@ class OpportunityTabs extends Component
             $q->where('slug', $this->activeCategory);
             $q->where('status', 'approved');
         })->latest()->get();
-
     }
 
     public function render()

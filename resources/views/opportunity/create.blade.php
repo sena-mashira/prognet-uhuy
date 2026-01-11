@@ -195,9 +195,9 @@
 
                     {{-- Submit --}}
                     <div class="pt-4">
-                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded">
+                        <x-button>
                             Publish Opportunity
-                        </button>
+                        </x-button>
                     </div>
 
                 </form>
