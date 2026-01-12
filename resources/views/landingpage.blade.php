@@ -256,7 +256,7 @@
         </span>
 
         <h1 class="mt-6 text-4xl md:text-6xl font-semibold tracking-tight leading-tight">
-          Tempat Akses 
+          Tempat Akses (updated) 
           <span class="block text-gray-400 dark:text-gray-500">
             Peluang Akademik dan Karier
           </span>
