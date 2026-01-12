@@ -116,8 +116,8 @@
   'app' => 
   array (
     'name' => 'TAPAK',
-    'env' => 'local',
-    'debug' => true,
+    'env' => 'production',
+    'debug' => false,
     'url' => 'https://tapak.mjspleasebenice.my.id',
     'frontend_url' => 'http://localhost:3000',
     'asset_url' => NULL,
@@ -126,7 +126,7 @@
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
     'cipher' => 'AES-256-CBC',
-    'key' => 'base64:OIt8Ffu933t2iArruzBm1GDaHUCoTK5phHtdHqAOVGI=',
+    'key' => 'base64:mOdsYPMQRza34mtAXs7iLRLErVBIwB7ZJqLVOVBpKPc=',
     'previous_keys' => 
     array (
     ),
@@ -256,7 +256,7 @@
   ),
   'cache' => 
   array (
-    'default' => 'database',
+    'default' => 'file',
     'stores' => 
     array (
       'array' => 
@@ -359,7 +359,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'laravel',
+        'database' => '/var/www/tapak/database/database.sqlite',
         'username' => 'root',
         'password' => '',
         'unix_socket' => '',
@@ -379,7 +379,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'laravel',
+        'database' => '/var/www/tapak/database/database.sqlite',
         'username' => 'root',
         'password' => '',
         'unix_socket' => '',
@@ -399,7 +399,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '5432',
-        'database' => 'laravel',
+        'database' => '/var/www/tapak/database/database.sqlite',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -414,7 +414,7 @@
         'url' => NULL,
         'host' => 'localhost',
         'port' => '1433',
-        'database' => 'laravel',
+        'database' => '/var/www/tapak/database/database.sqlite',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -916,7 +916,7 @@
   ),
   'session' => 
   array (
-    'driver' => 'database',
+    'driver' => 'file',
     'lifetime' => 120,
     'expire_on_close' => false,
     'encrypt' => false,
@@ -931,8 +931,8 @@
     ),
     'cookie' => 'tapak-session',
     'path' => '/',
-    'domain' => NULL,
-    'secure' => NULL,
+    'domain' => '.mjspleasebenice.my.id',
+    'secure' => true,
     'http_only' => true,
     'same_site' => 'lax',
     'partitioned' => false,
