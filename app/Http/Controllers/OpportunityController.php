@@ -66,8 +66,8 @@ class OpportunityController extends Controller
 
     public function update(OpportunityRequest $request, Opportunity $opportunity)
     {
+        dd($opportunity); 
         $opportunity->update($request->validated());
-
         return back()->with('success', 'Peluang berhasil diubah.');
     }
 
