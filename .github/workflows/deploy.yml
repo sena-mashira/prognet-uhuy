@@ -24,7 +24,6 @@ jobs:
         cd ${{ secrets.DEPLOY_PATH }}
         git pull origin main
         composer install --no-dev --optimize-autoloader
-        php artisan key:generate --force
         php artisan migrate --force
         php artisan optimize
         EOF
